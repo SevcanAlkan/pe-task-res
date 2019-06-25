@@ -1,4 +1,4 @@
-<div *ngIf="user" class="user-container">
+<mat-card *ngIf="user" class="user-container">
     <div>
         <img src="{{ user.avatar }}" class="avatar">
     </div>
@@ -16,4 +16,4 @@
             <input matInput placeholder="EMail" [(ngModel)]="user.email">
         </mat-form-field>
     </div> 
-</div>
+</mat-card>
