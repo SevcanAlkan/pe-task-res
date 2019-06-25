@@ -17,28 +17,33 @@ export class UsersListComponent implements OnInit {
   pagesCount: number;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private apiService: ApiService) {
   }
 
   ngOnInit() {
     this.activatedRoute.data.pipe(
       map(data => data.users)
     )
-      .subscribe((users: UserInterface[]) => {
-        this.userList = users;
+    .subscribe((users: { data: UserInterface[], total: number}) => {
+        this.userList = users.data;
+        this.pagesCount = users.total;
       });
 
-    this.activatedRoute.data.pipe(
-      map(data => data.paginationInfo)
-    )
-      .subscribe(paginationInfo => {
-        this.pagesCount = paginationInfo.total;
-      })
+    // this.activatedRoute.data.pipe(
+    //   map(data => data.paginationInfo)
+    // )
+    //   .subscribe(paginationInfo => {
+    //     this.pagesCount = paginationInfo.total;
+    //   });
   }
 
   pageChanged(event: PageEvent): void {
-    let page: number = event.pageIndex + 1;
-    this.router.navigate(['./'], { queryParams: { page } });
+    const page: number = event.pageIndex + 1;
+      this.apiService.fetchUsers(page).subscribe((users: {data: UserInterface[]}) => {
+          this.userList = users.data;
+      });
+    // this.router.navigate(['./'], { queryParams: { page } });
   }
 
   userSelected(user: UserInterface): void {

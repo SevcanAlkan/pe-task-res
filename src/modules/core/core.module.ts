@@ -5,17 +5,17 @@ import { ApiService, PaginationApiService } from './services';
 @NgModule({
   imports: [
     HttpModule
-  ],
+  ]
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {
-    console.log('CoreModule created');
+    // console.log('CoreModule created');
     return {
       ngModule: CoreModule,
       providers: [
         ApiService,
         PaginationApiService
       ]
-    }
+    };
   }
 }

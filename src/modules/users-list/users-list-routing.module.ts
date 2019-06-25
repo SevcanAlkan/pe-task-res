@@ -8,15 +8,14 @@ const routes: Routes = [
   {
     path: '',
     resolve: {
-      users: UsersResolver,
-      paginationInfo: PaginationResolver
+      users: UsersResolver
     },
     component: UsersListComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+    imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class UsersListRoutingModule { }

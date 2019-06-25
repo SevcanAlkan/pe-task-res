@@ -1,1 +1,19 @@
-<div>{{ user | json }}</div>
+<div *ngIf="user" class="user-container">
+    <div>
+        <img src="{{ user.avatar }}" class="avatar">
+    </div>
+
+    <div class="form-container">
+        <mat-form-field class="fw-field">
+            <input matInput placeholder="First Name" [(ngModel)]="user.first_name">
+        </mat-form-field>
+
+        <mat-form-field class="fw-field">
+            <input matInput placeholder="Last Name" [(ngModel)]="user.last_name">
+        </mat-form-field>
+
+        <mat-form-field class="fw-field">
+            <input matInput placeholder="EMail" [(ngModel)]="user.email">
+        </mat-form-field>
+    </div> 
+</div>

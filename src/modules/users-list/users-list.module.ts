@@ -7,15 +7,15 @@ import { PaginationResolver } from './resolvers/pagination.resolver';
 
 import { UsersListRoutingModule } from './users-list-routing.module';
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { SharedListModule } from '../shared/shared-list.module';
+
 
 @NgModule({
   declarations: [UsersListComponent],
   imports: [
-    CommonModule,
+    SharedListModule,
     CoreModule.forRoot(),
-    UsersListRoutingModule,
-    MatPaginatorModule,
-    MatTableModule
+    UsersListRoutingModule
   ],
   providers: [
     UsersResolver,

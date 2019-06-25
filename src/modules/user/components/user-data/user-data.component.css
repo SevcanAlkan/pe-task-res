@@ -1,0 +1,24 @@
+img.avatar {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 1px solid gray;
+    margin: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin: 50px auto;
+}
+
+.fw-field {
+    width: 100%;
+}
